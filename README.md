@@ -1,4 +1,4 @@
-# ColorBot3.2.1
+# ColorBot3.2
 
 ## 📦 目錄
 
