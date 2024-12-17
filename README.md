@@ -56,7 +56,7 @@
 ## 安裝步驟
 
 1. **下載專案**：
-   - 直接從 [GitHub](https://github.com/yourusername/ColorBot3.2.1) 下載 ZIP 檔案，或使用 Git 克隆專案：
+   - 直接從 [GitHub](https://github.com/0guys/colorbot) 下載 ZIP 檔案，或使用 Git 克隆專案：
      ```bash
      git clone https://github.com/yourusername/ColorBot3.2.1.git
      ```
