@@ -1,28 +1,33 @@
 #include "UltrasonicSensor.h"
-#include <Arduino.h>
-#include "PinConfig.h"  // 若腳位在此定義
+#include "PinConfig.h"
 
+// 初始化超音波感測器
 void initUltrasonicSensors() {
   pinMode(trigPinFront, OUTPUT);
   pinMode(echoPinFront, INPUT);
-
+  
   pinMode(trigPinLeft, OUTPUT);
   pinMode(echoPinLeft, INPUT);
-
+  
   pinMode(trigPinRight, OUTPUT);
   pinMode(echoPinRight, INPUT);
 }
 
+// 計算距離
 static float getDistance(int trigPin, int echoPin) {
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
-
+  
   digitalWrite(trigPin, HIGH);
   delayMicroseconds(10);
   digitalWrite(trigPin, LOW);
-
-  long duration = pulseIn(echoPin, HIGH, 30000UL);
-  float distance = duration * 0.0343 / 2.0;
+  
+  long duration = pulseIn(echoPin, HIGH, 30000UL); // 30ms 超時
+  if (duration == 0) {
+    return 999.0; // 超時
+  }
+  
+  float distance = duration * 0.0343 / 2.0; // cm
   return distance;
 }
 
